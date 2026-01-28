@@ -148,6 +148,10 @@ python -m src.run --real --symbols US.TQQQ US.QQQ
 
 # 使用 Claude 作为 LLM
 python -m src.run --simulate --llm anthropic
+
+# 使用快速启动脚本
+python start.py trade --simulate
+python start.py trade --real --symbols US.TQQQ US.QQQ
 ```
 
 ### 5. 启动 Web 界面
@@ -156,10 +160,35 @@ python -m src.run --simulate --llm anthropic
 # 启动 Web API
 python -m src.web.api
 
+# 或使用快速启动
+python start.py web
+
 # 访问 http://localhost:8080
 ```
 
-### 6. 功能演示
+### 6. CLI 工具
+
+```bash
+# 系统健康检查
+python -m src.cli health
+
+# 查看系统状态
+python -m src.cli status
+
+# 列出交易标的
+python -m src.cli symbols
+
+# 运行回测
+python -m src.cli backtest --capital 100000 --rsi-low 30 --rsi-high 70
+
+# 生成报告
+python -m src.cli report --format pdf --days 30
+
+# 导出交易数据
+python -m src.cli export --days 30 --output trades.json
+```
+
+### 7. 功能演示
 
 ```bash
 # 运行所有功能演示

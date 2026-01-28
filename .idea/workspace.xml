@@ -4,19 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64fee91e-6f5e-4e25-a45b-d90d6d816e6a" name="Changes" comment="add order optimizer module with latency tracking and unit tests">
-      <change afterPath="$PROJECT_DIR$/src/monitor/performance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/report/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/report/generator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/web/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/web/api.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_performance.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_report.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_web_api.py" afterDir="false" />
+    <list default="true" id="64fee91e-6f5e-4e25-a45b-d90d6d816e6a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/cli.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/start.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/integration/test_system.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/unit/test_cli.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features.txt" beforeDir="false" afterPath="$PROJECT_DIR$/features.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monitor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/monitor/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +58,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Python.api.executor": "Run",
     "Python.demo.executor": "Run",
     "Python.run.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -123,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769572213040</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add web module with FastAPI interface and performance monitoring features">
+      <option name="closed" value="true" />
+      <created>1769572948840</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1769572948840</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -141,7 +144,8 @@
     <MESSAGE value="initialize project structure and add core modules for AI Futu Trader" />
     <MESSAGE value="add session manager, position manager, and backtest module with unit tests" />
     <MESSAGE value="add order optimizer module with latency tracking and unit tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="add order optimizer module with latency tracking and unit tests" />
+    <MESSAGE value="add web module with FastAPI interface and performance monitoring features" />
+    <option name="LAST_COMMIT_MESSAGE" value="add web module with FastAPI interface and performance monitoring features" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
