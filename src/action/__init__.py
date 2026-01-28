@@ -14,6 +14,13 @@ from .position_manager import (
     ManagedPosition,
     PositionEntry,
 )
+from .order_optimizer import (
+    OrderOptimizer,
+    LatencyTracker,
+    LatencyMetrics,
+    ExecutionTimer,
+    get_order_optimizer,
+)
 
 __all__ = [
     "FutuExecutor",
@@ -25,4 +32,9 @@ __all__ = [
     "PositionManager",
     "ManagedPosition",
     "PositionEntry",
+    "OrderOptimizer",
+    "LatencyTracker",
+    "LatencyMetrics",
+    "ExecutionTimer",
+    "get_order_optimizer",
 ]

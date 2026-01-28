@@ -4,25 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64fee91e-6f5e-4e25-a45b-d90d6d816e6a" name="Changes" comment="initialize project structure and add core modules for AI Futu Trader">
-      <change afterPath="$PROJECT_DIR$/config/strategy_example.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/action/position_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backtest/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/backtest/engine.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/session_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/statistics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/core/strategy_config.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_backtest.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_position_manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_session.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_statistics.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_strategy_config.py" afterDir="false" />
+    <list default="true" id="64fee91e-6f5e-4e25-a45b-d90d6d816e6a" name="Changes" comment="add session manager, position manager, and backtest module with unit tests">
+      <change afterPath="$PROJECT_DIR$/demo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/action/order_optimizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/monitor/feishu_enhanced.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/unit/test_feishu_enhanced.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/unit/test_options.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/unit/test_order_optimizer.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/unit/test_persistence.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prompt.txt" beforeDir="false" afterPath="$PROJECT_DIR$/prompt.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features.txt" beforeDir="false" afterPath="$PROJECT_DIR$/features.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/action/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/action/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/core/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/core/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/monitor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/monitor/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +105,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769569945373</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add session manager, position manager, and backtest module with unit tests">
+      <option name="closed" value="true" />
+      <created>1769571028245</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1769571028245</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,7 +129,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initialize project structure and add core modules for AI Futu Trader" />
-    <option name="LAST_COMMIT_MESSAGE" value="initialize project structure and add core modules for AI Futu Trader" />
+    <MESSAGE value="add session manager, position manager, and backtest module with unit tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add session manager, position manager, and backtest module with unit tests" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
