@@ -1,0 +1,134 @@
+# AI Futu Trader - Docker Compose Configuration
+# Includes: Trading Service, Futu OpenD, Prometheus, Grafana
+
+version: '3.8'
+
+services:
+  # ==========================================
+  # AI Trading Service
+  # ==========================================
+  ai-trader:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-futu-trader
+    restart: unless-stopped
+    environment:
+      # Futu OpenD Connection
+      - FUTU_HOST=futu-opend
+      - FUTU_PORT=11111
+      - FUTU_TRADE_ENV=${FUTU_TRADE_ENV:-SIMULATE}
+      - FUTU_TRADE_PASSWORD=${FUTU_TRADE_PASSWORD:-}
+
+      # LLM Configuration
+      - LLM_PROVIDER=${LLM_PROVIDER:-openai}
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_MODEL=${OPENAI_MODEL:-gpt-4-turbo-preview}
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY:-}
+
+      # Trading Configuration
+      - TRADING_SYMBOLS=${TRADING_SYMBOLS:-US.TQQQ,US.QQQ}
+      - DEFAULT_POSITION_SIZE=${DEFAULT_POSITION_SIZE:-10000}
+      - MAX_DAILY_DRAWDOWN=${MAX_DAILY_DRAWDOWN:-0.03}
+      - MAX_TOTAL_DRAWDOWN=${MAX_TOTAL_DRAWDOWN:-0.15}
+
+      # Monitoring
+      - PROMETHEUS_PORT=8000
+      - FEISHU_WEBHOOK_URL=${FEISHU_WEBHOOK_URL:-}
+
+      # Logging
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - LOG_FILE=/app/logs/trading.log
+    volumes:
+      - ./logs:/app/logs
+      - ./data:/app/data
+    ports:
+      - "8000:8000"  # Prometheus metrics
+    depends_on:
+      - futu-opend
+    networks:
+      - trading-network
+    healthcheck:
+      test: ["CMD", "python", "-c", "import requests; requests.get('http://localhost:8000/metrics')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # ==========================================
+  # Futu OpenD Gateway
+  # Note: Official Futu OpenD Docker image or custom build
+  # You may need to replace this with your own OpenD setup
+  # ==========================================
+  futu-opend:
+    image: futuopend/futuopend:latest  # Replace with actual image or build
+    container_name: futu-opend
+    restart: unless-stopped
+    environment:
+      - FUTU_ACCOUNT=${FUTU_ACCOUNT:-}
+      - FUTU_PASSWORD_MD5=${FUTU_PASSWORD_MD5:-}
+    volumes:
+      - ./docker/opend-config:/root/FutuOpenD/Config
+      - futu-data:/root/FutuOpenD/Data
+    ports:
+      - "11111:11111"  # Quote/Trade API port
+    networks:
+      - trading-network
+    # Note: Futu OpenD requires proper account setup
+    # See: https://openapi.futunn.com/futu-api-doc/
+
+  # ==========================================
+  # Prometheus - Metrics Collection
+  # ==========================================
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: prometheus
+    restart: unless-stopped
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=15d'
+      - '--web.enable-lifecycle'
+    volumes:
+      - ./docker/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    ports:
+      - "9090:9090"
+    networks:
+      - trading-network
+
+  # ==========================================
+  # Grafana - Visualization
+  # ==========================================
+  grafana:
+    image: grafana/grafana:10.0.0
+    container_name: grafana
+    restart: unless-stopped
+    environment:
+      - GF_SECURITY_ADMIN_USER=${GRAFANA_USER:-admin}
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_USERS_ALLOW_SIGN_UP=false
+    volumes:
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./docker/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - trading-network
+
+# ==========================================
+# Networks
+# ==========================================
+networks:
+  trading-network:
+    driver: bridge
+
+# ==========================================
+# Volumes
+# ==========================================
+volumes:
+  futu-data:
+  prometheus-data:
+  grafana-data:

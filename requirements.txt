@@ -1,0 +1,39 @@
+# Futu OpenD API
+futu-api>=9.0.5008
+
+# AI/LLM
+openai>=1.12.0
+anthropic>=0.18.0
+tiktoken>=0.5.0
+
+# Data Processing
+numpy>=1.24.0
+pandas>=2.0.0
+ta>=0.10.2
+
+# Async & Concurrency
+asyncio-throttle>=1.0.2
+aiohttp>=3.9.0
+
+# Monitoring & Metrics
+prometheus-client>=0.19.0
+grafana-client>=3.5.0
+
+# Alerting
+requests>=2.31.0
+
+# Testing
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.1.0
+pytest-mock>=3.12.0
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.5.0
+pydantic-settings>=2.1.0
+loguru>=0.7.2
+tenacity>=8.2.0
+
+# Type hints
+typing-extensions>=4.9.0
