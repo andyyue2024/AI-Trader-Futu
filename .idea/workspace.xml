@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64fee91e-6f5e-4e25-a45b-d90d6d816e6a" name="Changes" comment="add CLI tools and quick start script for AI Futu Trader">
-      <change afterPath="$PROJECT_DIR$/src/monitor/dashboard.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/risk/sharpe_calculator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/risk/slippage_controller.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_sharpe.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_slippage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features.txt" beforeDir="false" afterPath="$PROJECT_DIR$/features.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/monitor/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/monitor/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/risk/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/risk/__init__.py" afterDir="false" />
+    <list default="true" id="64fee91e-6f5e-4e25-a45b-d90d6d816e6a" name="Changes" comment="add system dashboard module with real-time health and performance monitoring features">
+      <change beforePath="$PROJECT_DIR$/src/web/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/api.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +56,7 @@
     "Python.api.executor": "Run",
     "Python.demo.executor": "Run",
     "Python.run.executor": "Run",
+    "Python.start.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -137,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769576503342</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add system dashboard module with real-time health and performance monitoring features">
+      <option name="closed" value="true" />
+      <created>1769579101435</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1769579101435</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -157,7 +158,8 @@
     <MESSAGE value="add order optimizer module with latency tracking and unit tests" />
     <MESSAGE value="add web module with FastAPI interface and performance monitoring features" />
     <MESSAGE value="add CLI tools and quick start script for AI Futu Trader" />
-    <option name="LAST_COMMIT_MESSAGE" value="add CLI tools and quick start script for AI Futu Trader" />
+    <MESSAGE value="add system dashboard module with real-time health and performance monitoring features" />
+    <option name="LAST_COMMIT_MESSAGE" value="add system dashboard module with real-time health and performance monitoring features" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
