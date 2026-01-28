@@ -183,19 +183,19 @@ async def root():
         <!-- Top Stats Row -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
             <!-- Portfolio Value -->
-            <div class="card rounded-xl p-5 transition-all duration-300">
+            <div class="card rounded-xl p-5 transition-all duration-300" hx-get="/api/portfolio/html" hx-trigger="every 5s" hx-swap="innerHTML">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-gray-400 text-sm">投资组合</span>
                     <span class="text-2xl">💰</span>
                 </div>
-                <div id="portfolio-value" class="stat-value text-white">$100,000.00</div>
+                <div class="stat-value text-white">$100,000.00</div>
                 <div class="flex items-center mt-2">
-                    <span id="daily-change" class="text-green-400 text-sm font-medium">+$1,250.00 (+1.25%)</span>
+                    <span class="text-gray-400 text-sm font-medium">加载中...</span>
                 </div>
             </div>
 
             <!-- Today's P&L -->
-            <div class="card rounded-xl p-5 transition-all duration-300" hx-get="/api/metrics/summary" hx-trigger="every 5s" hx-swap="innerHTML">
+            <div class="card rounded-xl p-5 transition-all duration-300" hx-get="/api/metrics/html" hx-trigger="every 5s" hx-swap="innerHTML">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-gray-400 text-sm">今日盈亏</span>
                     <span class="text-2xl">📈</span>
@@ -207,26 +207,26 @@ async def root():
             </div>
 
             <!-- Win Rate -->
-            <div class="card rounded-xl p-5 transition-all duration-300">
+            <div class="card rounded-xl p-5 transition-all duration-300" hx-get="/api/winrate/html" hx-trigger="every 10s" hx-swap="innerHTML">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-gray-400 text-sm">胜率</span>
                     <span class="text-2xl">🎯</span>
                 </div>
-                <div id="win-rate" class="stat-value text-blue-400">68.5%</div>
+                <div class="stat-value text-blue-400">--</div>
                 <div class="w-full bg-gray-700 rounded-full h-2 mt-3">
-                    <div class="bg-blue-500 h-2 rounded-full progress-bar" style="width: 68.5%"></div>
+                    <div class="bg-blue-500 h-2 rounded-full progress-bar" style="width: 0%"></div>
                 </div>
             </div>
 
             <!-- Sharpe Ratio -->
-            <div class="card rounded-xl p-5 transition-all duration-300">
+            <div class="card rounded-xl p-5 transition-all duration-300" hx-get="/api/sharpe/html" hx-trigger="every 10s" hx-swap="innerHTML">
                 <div class="flex items-center justify-between mb-3">
                     <span class="text-gray-400 text-sm">夏普比率</span>
                     <span class="text-2xl">📊</span>
                 </div>
-                <div id="sharpe-ratio" class="stat-value text-purple-400">2.35</div>
+                <div class="stat-value text-purple-400">--</div>
                 <div class="flex items-center mt-2">
-                    <span class="text-green-400 text-sm">✓ 达标 (目标≥2.0)</span>
+                    <span class="text-gray-400 text-sm">等待数据...</span>
                 </div>
             </div>
         </div>
@@ -296,51 +296,51 @@ async def root():
         </div>
 
         <!-- Third Row: Compliance Metrics -->
-        <div class="card rounded-xl p-5 mb-6">
+        <div class="card rounded-xl p-5 mb-6" hx-get="/api/compliance/html" hx-trigger="every 10s" hx-swap="innerHTML">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-lg font-semibold">📋 目标合规状态</h3>
-                <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">8/8 达标</span>
+                <span class="px-3 py-1 bg-gray-500/20 text-gray-400 rounded-full text-sm">加载中...</span>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3">
-                <div class="text-center p-3 bg-gray-800/50 rounded-lg">
-                    <div class="text-green-400 text-lg mb-1">✓</div>
+                <div class="text-center p-3 bg-gray-800/50 rounded-lg animate-pulse">
+                    <div class="text-gray-400 text-lg mb-1">...</div>
                     <div class="text-xs text-gray-400">延迟</div>
-                    <div class="text-sm font-medium">1.2ms</div>
+                    <div class="text-sm font-medium">--</div>
                 </div>
-                <div class="text-center p-3 bg-gray-800/50 rounded-lg">
-                    <div class="text-green-400 text-lg mb-1">✓</div>
+                <div class="text-center p-3 bg-gray-800/50 rounded-lg animate-pulse">
+                    <div class="text-gray-400 text-lg mb-1">...</div>
                     <div class="text-xs text-gray-400">滑点</div>
-                    <div class="text-sm font-medium">0.12%</div>
+                    <div class="text-sm font-medium">--</div>
                 </div>
-                <div class="text-center p-3 bg-gray-800/50 rounded-lg">
-                    <div class="text-green-400 text-lg mb-1">✓</div>
+                <div class="text-center p-3 bg-gray-800/50 rounded-lg animate-pulse">
+                    <div class="text-gray-400 text-lg mb-1">...</div>
                     <div class="text-xs text-gray-400">成交额</div>
-                    <div class="text-sm font-medium">$68K</div>
+                    <div class="text-sm font-medium">--</div>
                 </div>
-                <div class="text-center p-3 bg-gray-800/50 rounded-lg">
-                    <div class="text-green-400 text-lg mb-1">✓</div>
+                <div class="text-center p-3 bg-gray-800/50 rounded-lg animate-pulse">
+                    <div class="text-gray-400 text-lg mb-1">...</div>
                     <div class="text-xs text-gray-400">成交率</div>
-                    <div class="text-sm font-medium">97.5%</div>
+                    <div class="text-sm font-medium">--</div>
                 </div>
-                <div class="text-center p-3 bg-gray-800/50 rounded-lg">
-                    <div class="text-green-400 text-lg mb-1">✓</div>
+                <div class="text-center p-3 bg-gray-800/50 rounded-lg animate-pulse">
+                    <div class="text-gray-400 text-lg mb-1">...</div>
                     <div class="text-xs text-gray-400">夏普</div>
-                    <div class="text-sm font-medium">2.35</div>
+                    <div class="text-sm font-medium">--</div>
                 </div>
-                <div class="text-center p-3 bg-gray-800/50 rounded-lg">
-                    <div class="text-green-400 text-lg mb-1">✓</div>
+                <div class="text-center p-3 bg-gray-800/50 rounded-lg animate-pulse">
+                    <div class="text-gray-400 text-lg mb-1">...</div>
                     <div class="text-xs text-gray-400">回撤</div>
-                    <div class="text-sm font-medium">8.5%</div>
+                    <div class="text-sm font-medium">--</div>
                 </div>
-                <div class="text-center p-3 bg-gray-800/50 rounded-lg">
-                    <div class="text-green-400 text-lg mb-1">✓</div>
+                <div class="text-center p-3 bg-gray-800/50 rounded-lg animate-pulse">
+                    <div class="text-gray-400 text-lg mb-1">...</div>
                     <div class="text-xs text-gray-400">熔断</div>
-                    <div class="text-sm font-medium">正常</div>
+                    <div class="text-sm font-medium">--</div>
                 </div>
-                <div class="text-center p-3 bg-gray-800/50 rounded-lg">
-                    <div class="text-green-400 text-lg mb-1">✓</div>
+                <div class="text-center p-3 bg-gray-800/50 rounded-lg animate-pulse">
+                    <div class="text-gray-400 text-lg mb-1">...</div>
                     <div class="text-xs text-gray-400">时段</div>
-                    <div class="text-sm font-medium">无缝</div>
+                    <div class="text-sm font-medium">--</div>
                 </div>
             </div>
         </div>
@@ -353,30 +353,8 @@ async def root():
                     <h3 class="text-lg font-semibold">📊 当前持仓</h3>
                     <span class="text-sm text-gray-400">实时更新</span>
                 </div>
-                <div class="overflow-x-auto" hx-get="/api/positions/html" hx-trigger="every 5s" hx-swap="innerHTML">
-                    <table class="w-full">
-                        <thead>
-                            <tr class="text-gray-400 text-sm border-b border-gray-700">
-                                <th class="text-left py-2">标的</th>
-                                <th class="text-right py-2">方向</th>
-                                <th class="text-right py-2">数量</th>
-                                <th class="text-right py-2">盈亏</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-b border-gray-700/50 hover:bg-gray-800/30">
-                                <td class="py-3">
-                                    <div class="font-medium">TQQQ</div>
-                                    <div class="text-xs text-gray-500">US.TQQQ</div>
-                                </td>
-                                <td class="text-right">
-                                    <span class="px-2 py-1 bg-green-500/20 text-green-400 rounded text-sm">LONG</span>
-                                </td>
-                                <td class="text-right">100</td>
-                                <td class="text-right text-green-400">+$75.00</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="overflow-x-auto" hx-get="/api/positions/html" hx-trigger="load, every 5s" hx-swap="innerHTML">
+                    <p class="text-gray-500 text-center py-4">加载中...</p>
                 </div>
             </div>
 
@@ -386,27 +364,8 @@ async def root():
                     <h3 class="text-lg font-semibold">📜 最近交易</h3>
                     <a href="/api/trades/recent" class="text-sm text-blue-400 hover:text-blue-300">查看全部 →</a>
                 </div>
-                <div class="space-y-3" hx-get="/api/trades/html" hx-trigger="every 10s" hx-swap="innerHTML">
-                    <div class="flex items-center justify-between p-3 bg-gray-800/30 rounded-lg">
-                        <div>
-                            <div class="font-medium">TQQQ</div>
-                            <div class="text-xs text-gray-500">10:30:45</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-green-400 font-medium">+$125.00</div>
-                            <div class="text-xs text-gray-500">LONG → FLAT</div>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-between p-3 bg-gray-800/30 rounded-lg">
-                        <div>
-                            <div class="font-medium">QQQ</div>
-                            <div class="text-xs text-gray-500">10:15:22</div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-red-400 font-medium">-$45.00</div>
-                            <div class="text-xs text-gray-500">SHORT → FLAT</div>
-                        </div>
-                    </div>
+                <div class="space-y-3" hx-get="/api/trades/html" hx-trigger="load, every 10s" hx-swap="innerHTML">
+                    <p class="text-gray-500 text-center py-4">加载中...</p>
                 </div>
             </div>
         </div>
@@ -415,52 +374,10 @@ async def root():
         <div class="card rounded-xl p-5 mb-6">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-lg font-semibold">🎯 交易标的</h3>
-                <button class="text-sm text-blue-400 hover:text-blue-300">+ 添加标的</button>
+                <span class="text-sm text-gray-400">点击切换状态</span>
             </div>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3" hx-get="/api/symbols/html" hx-trigger="load" hx-swap="innerHTML">
-                <div class="p-3 bg-gray-800/50 rounded-lg border border-green-500/30 cursor-pointer hover:border-green-500">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-bold">TQQQ</span>
-                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                    </div>
-                    <div class="text-lg font-medium">$52.35</div>
-                    <div class="text-xs text-green-400">+1.25%</div>
-                </div>
-                <div class="p-3 bg-gray-800/50 rounded-lg border border-green-500/30 cursor-pointer hover:border-green-500">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-bold">QQQ</span>
-                        <span class="w-2 h-2 bg-green-500 rounded-full"></span>
-                    </div>
-                    <div class="text-lg font-medium">$438.50</div>
-                    <div class="text-xs text-green-400">+0.85%</div>
-                </div>
-                <div class="p-3 bg-gray-800/50 rounded-lg border border-gray-600 cursor-pointer hover:border-blue-500">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-bold">SOXL</span>
-                        <span class="w-2 h-2 bg-gray-500 rounded-full"></span>
-                    </div>
-                    <div class="text-lg font-medium">$28.90</div>
-                    <div class="text-xs text-red-400">-0.45%</div>
-                </div>
-                <div class="p-3 bg-gray-800/50 rounded-lg border border-gray-600 cursor-pointer hover:border-blue-500">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-bold">SPXL</span>
-                        <span class="w-2 h-2 bg-gray-500 rounded-full"></span>
-                    </div>
-                    <div class="text-lg font-medium">$125.60</div>
-                    <div class="text-xs text-green-400">+0.32%</div>
-                </div>
-                <div class="p-3 bg-gray-800/50 rounded-lg border border-gray-600 cursor-pointer hover:border-blue-500">
-                    <div class="flex items-center justify-between mb-2">
-                        <span class="font-bold">AAPL</span>
-                        <span class="w-2 h-2 bg-gray-500 rounded-full"></span>
-                    </div>
-                    <div class="text-lg font-medium">$185.20</div>
-                    <div class="text-xs text-green-400">+0.15%</div>
-                </div>
-                <div class="p-3 bg-gray-800/50 rounded-lg border border-dashed border-gray-600 cursor-pointer hover:border-blue-500 flex items-center justify-center">
-                    <span class="text-gray-500">+ 更多</span>
-                </div>
+                <p class="text-gray-500 text-center py-4 col-span-full">加载中...</p>
             </div>
         </div>
     </div>
@@ -854,6 +771,87 @@ async def get_compliance_html():
     """
 
 
+@app.get("/api/portfolio/html", response_class=HTMLResponse)
+async def get_portfolio_html():
+    """Get portfolio value as HTML"""
+    try:
+        from src.risk.sharpe_calculator import get_sharpe_calculator
+        calc = get_sharpe_calculator()
+        equity = calc._current_equity
+        starting = calc.starting_equity
+        daily_pnl = equity - starting
+        daily_pct = (daily_pnl / starting * 100) if starting > 0 else 0
+    except Exception:
+        equity = 100000.0
+        daily_pnl = 0
+        daily_pct = 0
+
+    pnl_color = "green" if daily_pnl >= 0 else "red"
+    pnl_sign = "+" if daily_pnl >= 0 else ""
+
+    return f"""
+    <div class="flex items-center justify-between mb-3">
+        <span class="text-gray-400 text-sm">投资组合</span>
+        <span class="text-2xl">💰</span>
+    </div>
+    <div class="stat-value text-white">${equity:,.2f}</div>
+    <div class="flex items-center mt-2">
+        <span class="text-{pnl_color}-400 text-sm font-medium">{pnl_sign}${abs(daily_pnl):,.2f} ({pnl_sign}{abs(daily_pct):.2f}%)</span>
+    </div>
+    """
+
+
+@app.get("/api/winrate/html", response_class=HTMLResponse)
+async def get_winrate_html():
+    """Get win rate as HTML"""
+    try:
+        from src.data.persistence import get_trade_database
+        db = get_trade_database()
+        stats = db.get_trading_stats(30)
+        win_rate = stats.get("win_rate", 0) * 100
+    except Exception:
+        win_rate = 0
+
+    color = "green" if win_rate >= 50 else "yellow" if win_rate >= 30 else "red"
+
+    return f"""
+    <div class="flex items-center justify-between mb-3">
+        <span class="text-gray-400 text-sm">胜率</span>
+        <span class="text-2xl">🎯</span>
+    </div>
+    <div class="stat-value text-blue-400">{win_rate:.1f}%</div>
+    <div class="w-full bg-gray-700 rounded-full h-2 mt-3">
+        <div class="bg-blue-500 h-2 rounded-full progress-bar" style="width: {min(win_rate, 100)}%"></div>
+    </div>
+    """
+
+
+@app.get("/api/sharpe/html", response_class=HTMLResponse)
+async def get_sharpe_html():
+    """Get Sharpe ratio as HTML"""
+    try:
+        from src.risk.sharpe_calculator import get_sharpe_calculator
+        calc = get_sharpe_calculator()
+        sharpe = calc.calculate_sharpe()
+    except Exception:
+        sharpe = 0
+
+    meets_target = sharpe >= 2.0
+    status_color = "green" if meets_target else "yellow" if sharpe >= 1.0 else "red"
+    status_text = "✓ 达标" if meets_target else "✗ 未达标"
+
+    return f"""
+    <div class="flex items-center justify-between mb-3">
+        <span class="text-gray-400 text-sm">夏普比率</span>
+        <span class="text-2xl">📊</span>
+    </div>
+    <div class="stat-value text-purple-400">{sharpe:.2f}</div>
+    <div class="flex items-center mt-2">
+        <span class="text-{status_color}-400 text-sm">{status_text} (目标≥2.0)</span>
+    </div>
+    """
+
+
 # ==========================================
 # Trading Control Endpoints
 # ==========================================
@@ -1047,6 +1045,37 @@ async def get_metrics_summary():
         }
 
 
+@app.get("/api/metrics/html", response_class=HTMLResponse)
+async def get_metrics_html():
+    """Get metrics as HTML for HTMX"""
+    try:
+        from src.data.persistence import get_trade_database
+        db = get_trade_database()
+        stats = db.get_trading_stats(30)
+
+        total_pnl = stats.get("total_pnl", 0)
+        total_trades = stats.get("total_trades", 0)
+        win_rate = stats.get("win_rate", 0) * 100
+    except Exception:
+        total_pnl = 0
+        total_trades = 0
+        win_rate = 0
+
+    pnl_color = "green" if total_pnl >= 0 else "red"
+    pnl_sign = "+" if total_pnl >= 0 else ""
+
+    return f"""
+    <div class="flex items-center justify-between mb-3">
+        <span class="text-gray-400 text-sm">今日盈亏</span>
+        <span class="text-2xl">📈</span>
+    </div>
+    <div class="stat-value text-{pnl_color}-400">{pnl_sign}${abs(total_pnl):,.2f}</div>
+    <div class="flex items-center mt-2">
+        <span class="text-gray-400 text-sm">{total_trades} 笔交易 · 胜率 {win_rate:.1f}%</span>
+    </div>
+    """
+
+
 @app.get("/api/metrics/daily")
 async def get_daily_metrics(days: int = Query(default=30, le=365)):
     """Get daily performance metrics"""
@@ -1071,7 +1100,7 @@ async def get_daily_metrics(days: int = Query(default=30, le=365)):
 
 @app.get("/api/reports/generate")
 async def generate_report(
-    format: str = Query(default="pdf", regex="^(pdf|excel)$"),
+    format: str = Query(default="pdf", pattern="^(pdf|excel)$"),
     start_date: str = Query(default=None),
     end_date: str = Query(default=None),
     background_tasks: BackgroundTasks = None

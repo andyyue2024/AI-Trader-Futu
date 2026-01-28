@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="64fee91e-6f5e-4e25-a45b-d90d6d816e6a" name="Changes" comment="add system dashboard module with real-time health and performance monitoring features">
+    <list default="true" id="64fee91e-6f5e-4e25-a45b-d90d6d816e6a" name="Changes" comment="add enhanced dashboard with real-time system status, trading metrics, and compliance monitoring features">
+      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/web/api.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/web/api.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -138,7 +140,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769579101435</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add enhanced dashboard with real-time system status, trading metrics, and compliance monitoring features">
+      <option name="closed" value="true" />
+      <created>1769580053372</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1769580053372</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,7 +169,8 @@
     <MESSAGE value="add web module with FastAPI interface and performance monitoring features" />
     <MESSAGE value="add CLI tools and quick start script for AI Futu Trader" />
     <MESSAGE value="add system dashboard module with real-time health and performance monitoring features" />
-    <option name="LAST_COMMIT_MESSAGE" value="add system dashboard module with real-time health and performance monitoring features" />
+    <MESSAGE value="add enhanced dashboard with real-time system status, trading metrics, and compliance monitoring features" />
+    <option name="LAST_COMMIT_MESSAGE" value="add enhanced dashboard with real-time system status, trading metrics, and compliance monitoring features" />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

@@ -165,6 +165,7 @@ python start.py web
 
 # 访问 http://localhost:8080
 ```
+![img.png](img.png)
 
 ### 6. CLI 工具
 
